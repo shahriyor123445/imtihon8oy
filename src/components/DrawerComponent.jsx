@@ -5,7 +5,12 @@ export function DrawerComponent({ isOpen, onClose, selectedItems }) {
   const filteredItems = selectedItems.filter((item) => item.image && item.name);
 
   return (
-    <Drawer open={isOpen} onClose={onClose} position="right">
+    <Drawer
+      open={isOpen}
+      onClose={onClose}
+      position="right"
+      className="bg-[#515151]"
+    >
       <Drawer.Header title="Selected Cryptocurrencies" />
       <Drawer.Items>
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2">

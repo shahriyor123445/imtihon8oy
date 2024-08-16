@@ -52,7 +52,7 @@ export const data = {
   ],
   datasets: [
     {
-      label: "Dataset 1",
+      label: "Price (Past 1 Days) in INR",
       data: [
         3500000, 2700000, 2600000, 3800000, 2900000, 3900000, 3000000, 3200000,
         4300000, 3400000, 4900000, 3500000, 3400000, 3600000, 3700000, 3550000,
@@ -77,7 +77,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Line Chart Example",
+      text: "",
     },
   },
 };

@@ -74,3 +74,4 @@ export default function HeroSection({ carouselElements = [] }) {
   );
 }
 HeroSection.js;
+

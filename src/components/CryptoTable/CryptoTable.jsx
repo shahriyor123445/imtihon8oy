@@ -22,7 +22,7 @@ export default function CryptoTable() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(249); // Assume a total of 10 pages
+  const [totalPages, setTotalPages] = useState(249);
   const { selectedCryptos, isDrawerOpen, handleDrawerToggle, setIsDrawerOpen } =
     useCrypto();
 
@@ -31,7 +31,7 @@ export default function CryptoTable() {
   useEffect(() => {
     async function fetchCryptos() {
       setLoading(true);
-      setError(null); // Reset error state before fetching
+      setError(null);
 
       try {
         const response = await fetch(
@@ -44,12 +44,12 @@ export default function CryptoTable() {
 
         const data = await response.json();
         setCryptos(data);
-        setFilteredCryptos(data); // Initially set filteredCryptos to all cryptos
-        setTotalPages(25); // For example, assume there are 25 pages total
+        setFilteredCryptos(data);
+        setTotalPages(25);
       } catch (error) {
-        setError(error.message); // Set error message to state
+        setError(error.message);
       } finally {
-        setLoading(false); // Set loading to false regardless of success or failure
+        setLoading(false);
       }
     }
 
@@ -64,7 +64,6 @@ export default function CryptoTable() {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
 
-    // Filter cryptos by name or symbol
     const filtered = cryptos.filter(
       (crypto) =>
         crypto.name.toLowerCase().includes(value) ||
@@ -92,7 +91,7 @@ export default function CryptoTable() {
           placeholder="Search For a Crypto Currency..."
           type="text"
           value={searchTerm}
-          onChange={handleSearchChange} // Call search function on input change
+          onChange={handleSearchChange}
         />
         <Table>
           <TableHead className="bg-blue border-b">
@@ -180,3 +179,4 @@ export default function CryptoTable() {
     </div>
   );
 }
+

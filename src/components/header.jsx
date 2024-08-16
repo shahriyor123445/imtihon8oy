@@ -21,6 +21,9 @@ export default function Header() {
           <option className="bg-black" value="otherOption">
             EUR
           </option>
+          <option className="bg-black" value="otherOption">
+            JPY
+          </option>
         </select>
         <button
           onClick={() => handleDrawerToggle({})}

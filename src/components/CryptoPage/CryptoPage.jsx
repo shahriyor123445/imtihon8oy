@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import LineChart from "../LineChart";
+import Buttun from "../buttun";
 
 function CryptoPage() {
   const { cryptoId } = useParams();
@@ -10,7 +11,7 @@ function CryptoPage() {
   useEffect(() => {
     async function fetchCryptoById() {
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${cryptoId}` // Fetch data for the specific cryptocurrency
+        `https://api.coingecko.com/api/v3/coins/${cryptoId}`
       );
       const data = await response.json();
       setCrypto(data);
@@ -44,27 +45,28 @@ function CryptoPage() {
           </p>
           <p className="text-center">
             <span className="text-white text-[24px] font-bold">
-              Current Price:{" "}
+              Current Price:
             </span>
             ${crypto.market_data.current_price.usd.toLocaleString()}
           </p>
           <p className="text-center ">
             <span className="text-white text-[24px] font-bold">
               Market Cap:
-            </span>{" "}
+            </span>
             ${crypto.market_data.market_cap.usd.toLocaleString()}
           </p>
         </div>
         <div className="col-span-8 ml-[20px]">
           <LineChart />
+          <Buttun />
         </div>
       </div>
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-8 mb-8">
         <button
-          className="border p-4 rounded-md bg-blue-700 text-white"
+          className="border p-2 rounded-md bg-blue-700 text-white"
           onClick={() => navigate("/")}
         >
-          Return to Home
+          return to main page
         </button>
       </div>
     </div>
@@ -72,4 +74,3 @@ function CryptoPage() {
 }
 
 export default CryptoPage;
-CryptoPage.js;
